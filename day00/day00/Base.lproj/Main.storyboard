@@ -28,6 +28,9 @@
                                         <state key="normal" title="+/-">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickNEG:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mU3-No-lYV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGP-q8-l8h" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99.5" width="91.5" height="91.5"/>
@@ -36,6 +39,9 @@
                                         <state key="normal" title="7">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickSeven:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hIi-3g-k3D"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mq5-eV-4Kz" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="199" width="91.5" height="91.5"/>
@@ -44,6 +50,9 @@
                                         <state key="normal" title="4">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickFour:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YrC-Fj-BG6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tew-Ve-ysa" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="298.5" width="91.5" height="91.5"/>
@@ -52,6 +61,9 @@
                                         <state key="normal" title="1">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jB1-wo-VbG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-jU-iXw" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="298.5" y="0.0" width="91.5" height="91.5"/>
@@ -60,6 +72,9 @@
                                         <state key="normal" title="÷">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickDevide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wu3-3v-wsC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqB-Ys-X9v" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="199" y="398" width="91.5" height="91.5"/>
@@ -68,6 +83,9 @@
                                         <state key="normal" title="0">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickZero:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fZF-hh-ceO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSy-5c-bUn" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="99.5" y="99.5" width="91.5" height="91.5"/>
@@ -76,6 +94,9 @@
                                         <state key="normal" title="8">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickEight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WlJ-Ot-sGc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdx-Uj-Kyo" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="199" y="99.5" width="91.5" height="91.5"/>
@@ -84,6 +105,9 @@
                                         <state key="normal" title="9">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickNine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Upl-hi-I2y"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1b-Xg-08c" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="298.5" y="99.5" width="91.5" height="91.5"/>
@@ -92,6 +116,9 @@
                                         <state key="normal" title="×">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickMultiply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pFK-jV-sNL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-hF-GaG" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="99.5" y="199" width="91.5" height="91.5"/>
@@ -100,6 +127,9 @@
                                         <state key="normal" title="5">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickFive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jR5-nB-RTY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiE-i4-MIg" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="199" y="199" width="91.5" height="91.5"/>
@@ -108,6 +138,9 @@
                                         <state key="normal" title="6">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickSix:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v98-PC-fNu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQx-8h-1jB" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="99.5" y="298.5" width="91.5" height="91.5"/>
@@ -116,6 +149,9 @@
                                         <state key="normal" title="2">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KFj-IH-epf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vx-qn-MDV" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="199" y="298.5" width="91.5" height="91.5"/>
@@ -124,6 +160,9 @@
                                         <state key="normal" title="3">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickThree:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mtt-iP-8rv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FT-Nw-SX3" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="298.5" y="298.5" width="91.5" height="91.5"/>
@@ -132,6 +171,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickPlus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oC9-fC-nFO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhk-jg-Vm5" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="298.5" y="398" width="91.5" height="91.5"/>
@@ -140,6 +182,9 @@
                                         <state key="normal" title="=">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickEqual:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nVa-Yw-Ic9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-mL-BAu" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="298.5" y="199" width="91.5" height="91.5"/>
@@ -148,6 +193,9 @@
                                         <state key="normal" title="−">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickMinus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udj-In-x19"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K79-Eh-Yya" customClass="CornerButton" customModule="day00" customModuleProvider="target">
                                         <rect key="frame" x="99.5" y="0.0" width="91.5" height="91.5"/>
@@ -156,6 +204,9 @@
                                         <state key="normal" title="AC">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickAC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FM4-YE-yBm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,10 +281,17 @@
                                     <constraint firstItem="oGP-q8-l8h" firstAttribute="top" secondItem="y7z-lq-02P" secondAttribute="bottom" constant="8" id="ziJ-4a-AxV"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 456 789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-Cq-D1J">
-                                <rect key="frame" x="12" y="286.5" width="390" height="74"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="62"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-Cq-D1J">
+                                <rect key="frame" x="12" y="289" width="390" height="71.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="123 456 789">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="62" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -250,6 +308,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="fieldLabel" destination="7Fv-Cq-D1J" id="oKc-Yc-JD2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
