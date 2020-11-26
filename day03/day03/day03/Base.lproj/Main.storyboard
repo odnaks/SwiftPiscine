@@ -41,16 +41,22 @@
                                                         <constraint firstAttribute="width" secondItem="wcB-LJ-7lX" secondAttribute="height" multiplier="8:7" id="iw2-lH-FBI"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="183-69-92f">
+                                                    <rect key="frame" x="90" y="77.5" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="wcB-LJ-7lX" secondAttribute="trailing" id="5cx-ZG-lsg"/>
                                                 <constraint firstAttribute="bottom" secondItem="wcB-LJ-7lX" secondAttribute="bottom" id="CXM-tV-nlc"/>
+                                                <constraint firstItem="183-69-92f" firstAttribute="centerX" secondItem="wcB-LJ-7lX" secondAttribute="centerX" id="LBr-KB-qvX"/>
                                                 <constraint firstItem="wcB-LJ-7lX" firstAttribute="leading" secondItem="hdg-eV-7wT" secondAttribute="leading" id="QXe-Nt-8iU"/>
+                                                <constraint firstItem="183-69-92f" firstAttribute="centerY" secondItem="wcB-LJ-7lX" secondAttribute="centerY" id="eQH-Jg-XRI"/>
                                                 <constraint firstItem="wcB-LJ-7lX" firstAttribute="top" secondItem="hdg-eV-7wT" secondAttribute="top" id="l4b-Ih-rbX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="200" height="175"/>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="183-69-92f" id="C5r-ho-v7c"/>
                                             <outlet property="photoImageView" destination="wcB-LJ-7lX" id="oTs-Yl-TkC"/>
                                         </connections>
                                     </collectionViewCell>
