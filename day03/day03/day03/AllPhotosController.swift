@@ -16,7 +16,6 @@ class AllPhotosController: UIViewController {
         "https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jp",
         "https://apod.nasa.gov/apod/image/2011/Helix2_CFHT_1917.jpg",
         "https://apod.nasa.gov/apod/image/2011/JupiterVista_JunoGill_3688.jpg",
-        "https://apod.nasa.gov/apod/image/2011/LeonidmeteorandMarsoverYulongsnowmountain.jpg",
         "https://apod.nasa.gov/apod/image/2011/DoubleCluster_Polanski_4560.jpg",
         "https://apod.nasa.gov/apod/image/2011/SteveMilkyWay_NasaTrinder_6144.jpg",
 //        "https://apod.nasa.gov/apod/image/2011/CreteSky_Slovinsky_3000.jpg",
@@ -31,6 +30,7 @@ class AllPhotosController: UIViewController {
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
     }
+    
     
     private func displayActivityndicator(_ state: Bool) {
         if #available(iOS 13, *) {} else {
