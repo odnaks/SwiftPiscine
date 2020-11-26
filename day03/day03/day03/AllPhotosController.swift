@@ -13,7 +13,7 @@ class AllPhotosController: UIViewController {
     
     private var numberImageInProgress = 0
     private let photos = [
-        "https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jpg",
+        "https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jp",
         "https://apod.nasa.gov/apod/image/2011/Helix2_CFHT_1917.jpg",
         "https://apod.nasa.gov/apod/image/2011/JupiterVista_JunoGill_3688.jpg",
         "https://apod.nasa.gov/apod/image/2011/LeonidmeteorandMarsoverYulongsnowmountain.jpg",
@@ -37,6 +37,14 @@ class AllPhotosController: UIViewController {
             numberImageInProgress = state ? numberImageInProgress + 1 : numberImageInProgress - 1
             UIApplication.shared.isNetworkActivityIndicatorVisible = numberImageInProgress > 0 ? true : false
         }
+    }
+    
+    private func showError(_ index: Int) {
+        print("error")
+        let alert = UIAlertController(title: "Error", message: "Cannot access to \(photos[index])", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: {_ in})
+        alert.addAction(action)
+        self.show(alert, sender: nil)
     }
 }
 
@@ -62,6 +70,20 @@ extension AllPhotosController: UICollectionViewDelegate, UICollectionViewDataSou
                             self?.displayActivityndicator(false)
                         }
                     }
+                } else {
+                    DispatchQueue.main.async {
+                        cell.activityIndicator.stopAnimating()
+                        self?.displayActivityndicator(false)
+                        cell.photoImageView.image = UIImage(named: "errorImage")
+                        self?.showError(indexPath.row)
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    cell.activityIndicator.stopAnimating()
+                    self?.displayActivityndicator(false)
+                    cell.photoImageView.image = UIImage(named: "errorImage")
+                    self?.showError(indexPath.row)
                 }
             }
         }
