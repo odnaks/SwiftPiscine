@@ -9,7 +9,7 @@ import UIKit
 
 class AllPhotosController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var photosCollectionView: UICollectionView!
     
     private var numberImageInProgress = 0
     private let photos = [
@@ -28,8 +28,8 @@ class AllPhotosController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        photosCollectionView.delegate = self
+        photosCollectionView.dataSource = self
     }
     
     private func displayActivityndicator(_ state: Bool) {
@@ -41,10 +41,10 @@ class AllPhotosController: UIViewController {
     
     private func showError(_ index: Int) {
         print("error")
-        let alert = UIAlertController(title: "Error", message: "Cannot access to \(photos[index])", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Error", message: "Cannot access to \(photos[index])", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: {_ in})
-        alert.addAction(action)
-        self.show(alert, sender: nil)
+        alertVC.addAction(action)
+        self.present(alertVC, animated: false)
     }
 }
 
@@ -89,6 +89,12 @@ extension AllPhotosController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("select \(indexPath.row)")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailPhotoController") as! DetailPhotoController
+        let cell = photosCollectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+        vc.photoImage = cell.photoImageView.image
+        self.show(vc, sender: nil)
+    }
     
 }
