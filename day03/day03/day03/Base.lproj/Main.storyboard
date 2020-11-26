@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LCC-gg-Kky">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KbW-ej-X3l">
                                     <size key="itemSize" width="214" height="175"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,6 +37,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wcB-LJ-7lX">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="175"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="OvM-is-NMK"/>
                                                         <constraint firstAttribute="width" secondItem="wcB-LJ-7lX" secondAttribute="height" multiplier="8:7" id="iw2-lH-FBI"/>
@@ -46,6 +47,7 @@
                                                     <rect key="frame" x="90" y="77.5" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="wcB-LJ-7lX" secondAttribute="trailing" id="5cx-ZG-lsg"/>
                                                 <constraint firstAttribute="bottom" secondItem="wcB-LJ-7lX" secondAttribute="bottom" id="CXM-tV-nlc"/>
@@ -55,6 +57,7 @@
                                                 <constraint firstItem="wcB-LJ-7lX" firstAttribute="top" secondItem="hdg-eV-7wT" secondAttribute="top" id="l4b-Ih-rbX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="200" height="175"/>
                                         <connections>
                                             <outlet property="activityIndicator" destination="183-69-92f" id="C5r-ho-v7c"/>
@@ -65,7 +68,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="LCC-gg-Kky" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NxN-15-Uqb"/>
                             <constraint firstItem="LCC-gg-Kky" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="tHJ-BE-uW4"/>
@@ -96,6 +99,7 @@
                                         <rect key="frame" x="28" y="-45" width="414" height="896"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="nNr-M4-8uB" secondAttribute="bottom" id="GXe-67-OWM"/>
                                     <constraint firstItem="nNr-M4-8uB" firstAttribute="top" secondItem="Zkv-l7-S8H" secondAttribute="top" id="L9t-J7-jPw"/>
@@ -107,7 +111,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RpA-YW-PIj"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zkv-l7-S8H" firstAttribute="leading" secondItem="n0i-J2-xWk" secondAttribute="leading" id="XKG-40-NeN"/>
                             <constraint firstAttribute="trailing" secondItem="Zkv-l7-S8H" secondAttribute="trailing" id="ccg-ua-jxe"/>
@@ -126,11 +130,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

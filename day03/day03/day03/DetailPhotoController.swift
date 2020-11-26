@@ -30,6 +30,13 @@ class DetailPhotoController: UIViewController {
         self.setMinZoomScaleForImageSize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
     private func setMinZoomScaleForImageSize() {
         
         guard let photo = photoImage else {return}

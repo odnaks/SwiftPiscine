@@ -9,19 +9,22 @@ import UIKit
 
 class AllPhotosController: UIViewController {
     
+    private let reuseIdentifier = "PhotoCollectionViewCell"
+    private let inserts: CGFloat = 2
+    private let countPhotoInRow: Int = 2
+    
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
     private var numberImageInProgress = 0
     private let photos = [
-        "https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jp",
+        "https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jpg",
         "https://apod.nasa.gov/apod/image/2011/Helix2_CFHT_1917.jpg",
-        "https://apod.nasa.gov/apod/image/2011/JupiterVista_JunoGill_3688.jpg",
         "https://apod.nasa.gov/apod/image/2011/DoubleCluster_Polanski_4560.jpg",
         "https://apod.nasa.gov/apod/image/2011/SteveMilkyWay_NasaTrinder_6144.jpg",
-//        "https://apod.nasa.gov/apod/image/2011/CreteSky_Slovinsky_3000.jpg",
-//        "https://apod.nasa.gov/apod/image/2011/ngc5866_hst_1235.jpg",
-//        "https://apod.nasa.gov/apod/image/2011/lunaortybluenodidasc.jpg",
-//        "https://apod.nasa.gov/apod/image/2011/Tarantula_HOO_final_2_2048.jpg"
+       "https://apod.nasa.gov/apod/image/2011/CreteSky_Slovinsky_3000.jpg",
+        "https://apod.nasa.gov/apod/image/2011/ngc5866_hst_1235.jpg",
+        "https://apod.nasa.gov/apod/image/2011/lunaortybluenodidasc.jpg",
+        "https://apod.nasa.gov/apod/image/2011/Tarantula_HOO_final_2_2048.jpg"
     ]
     
     override func viewDidLoad() {
@@ -29,6 +32,22 @@ class AllPhotosController: UIViewController {
         
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = inserts
+        layout.minimumLineSpacing = inserts * 2
+        photosCollectionView.collectionViewLayout = layout
+        self.view.backgroundColor = .black
+        
+        self.title = "EARTH IS FLAT"
+        self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     
@@ -48,13 +67,13 @@ class AllPhotosController: UIViewController {
     }
 }
 
-extension AllPhotosController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AllPhotosController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
         cell.activityIndicator.startAnimating()
         displayActivityndicator(true)
         DispatchQueue.global().async {[weak self] in
@@ -97,4 +116,11 @@ extension AllPhotosController: UICollectionViewDelegate, UICollectionViewDataSou
         self.show(vc, sender: nil)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthView = Int(collectionView.frame.width)
+        let widthCell = widthView / countPhotoInRow - Int(inserts) * 2
+        
+        return CGSize(width: widthCell, height: widthCell)
+    }
 }
+
