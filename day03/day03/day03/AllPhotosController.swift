@@ -7,6 +7,14 @@
 
 import UIKit
 
+private struct Photo {
+    var link: String
+    var image: UIImage?
+    init(_ link: String) {
+        self.link = link
+    }
+}
+
 class AllPhotosController: UIViewController {
     
     private let reuseIdentifier = "PhotoCollectionViewCell"
@@ -16,15 +24,15 @@ class AllPhotosController: UIViewController {
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
     private var numberImageInProgress = 0
-    private let photos = [
-        "https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jpg",
-        "https://apod.nasa.gov/apod/image/2011/Helix2_CFHT_1917.jpg",
-        "https://apod.nasa.gov/apod/image/2011/DoubleCluster_Polanski_4560.jpg",
-        "https://apod.nasa.gov/apod/image/2011/SteveMilkyWay_NasaTrinder_6144.jpg",
-       "https://apod.nasa.gov/apod/image/2011/CreteSky_Slovinsky_3000.jpg",
-        "https://apod.nasa.gov/apod/image/2011/ngc5866_hst_1235.jpg",
-        "https://apod.nasa.gov/apod/image/2011/lunaortybluenodidasc.jpg",
-        "https://apod.nasa.gov/apod/image/2011/Tarantula_HOO_final_2_2048.jpg"
+    private var photos = [
+        Photo("https://apod.nasa.gov/apod/image/2011/M31Horizon_Ferrarino_2048.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/Helix2_CFHT_1917.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/DoubleCluster_Polanski_4560.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/SteveMilkyWay_NasaTrinder_6144.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/CreteSky_Slovinsky_3000.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/ngc5866_hst_1235.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/lunaortybluenodidasc.jpg"),
+        Photo("https://apod.nasa.gov/apod/image/2011/Tarantula_HOO_final_2_2048.jpg")
     ]
     
     override func viewDidLoad() {
@@ -76,43 +84,59 @@ extension AllPhotosController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
         cell.activityIndicator.startAnimating()
         displayActivityndicator(true)
-        DispatchQueue.global().async {[weak self] in
-            if let stringUrl = self?.photos[indexPath.row], let url = URL(string: stringUrl) {
-                print("\(indexPath.row) url ok")
-                if let data = try? Data(contentsOf: url) {
-                    print("\(indexPath.row) data ok")
-                    if let image = UIImage(data: data) {
-                        print("\(indexPath.row) image ok")
+        
+        let photo = self.photos[indexPath.row]
+        
+        if let image = photo.image {
+            cell.photoImageView.image = image
+            cell.activityIndicator.stopAnimating()
+            displayActivityndicator(false)
+        } else {
+            DispatchQueue.global().async {[weak self] in
+                if let url = URL(string: photo.link) {
+                    print("\(indexPath.row) url ok")
+                    if let data = try? Data(contentsOf: url) {
+                        print("\(indexPath.row) data ok")
+                        if let image = UIImage(data: data) {
+                            print("\(indexPath.row) image ok")
+                            DispatchQueue.main.async {
+                                cell.photoImageView.image = image
+                                cell.activityIndicator.stopAnimating()
+                                self?.photos[indexPath.row].image = image
+                                self?.displayActivityndicator(false)
+                            }
+                        }
+                    } else {
                         DispatchQueue.main.async {
-                            cell.photoImageView.image = image
                             cell.activityIndicator.stopAnimating()
                             self?.displayActivityndicator(false)
+                            let errorImage = UIImage(named: "errorImage")
+                            cell.photoImageView.image = errorImage
+                            self?.photos[indexPath.row].image = errorImage
+                            self?.showError(indexPath.row)
                         }
                     }
                 } else {
                     DispatchQueue.main.async {
                         cell.activityIndicator.stopAnimating()
                         self?.displayActivityndicator(false)
-                        cell.photoImageView.image = UIImage(named: "errorImage")
+                        let errorImage = UIImage(named: "errorImage")
+                        cell.photoImageView.image = errorImage
+                        self?.photos[indexPath.row].image = errorImage
                         self?.showError(indexPath.row)
                     }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    cell.activityIndicator.stopAnimating()
-                    self?.displayActivityndicator(false)
-                    cell.photoImageView.image = UIImage(named: "errorImage")
-                    self?.showError(indexPath.row)
                 }
             }
         }
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("select \(indexPath.row)")
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailPhotoController") as! DetailPhotoController
-        let cell = photosCollectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
-        vc.photoImage = cell.photoImageView.image
+//        let cell = photosCollectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+        vc.photoImage = self.photos[indexPath.row].image
+
         self.show(vc, sender: nil)
     }
     
