@@ -17,9 +17,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let api = APIController(withToken: "", andDelegate: self)
-        api.getToken()
+        APIController.getToken{ token in
+            let api = APIController(withToken: token, andDelegate: self)
+            api.search(by: "ecole42")
+        }
 //        api.search(with: "ecole 42")
         
         

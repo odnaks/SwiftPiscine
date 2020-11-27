@@ -8,6 +8,9 @@
 
 import Foundation
 
+fileprivate let CONSUMER_KEY = "IQKbtAYlXLripLGPWd0HUA"
+fileprivate let CONSUMER_SECRET = "GgDYlkSvaPxGxC4X8liwpUoqKwwr3lCADbz8A7ADU"
+
 class APIController {
     weak var delegate: APITwitterDelegate?
     
@@ -18,43 +21,36 @@ class APIController {
         self.token = token
     }
     
-    private let CONSUMER_KEY = "IQKbtAYlXLripLGPWd0HUA"
-    private let CONSUMER_SECRET = "GgDYlkSvaPxGxC4X8liwpUoqKwwr3lCADbz8A7ADU"
-    
-    
-    func search(with text: String) {
+    func search(by keyword: String) {
         //request
         print("search")
-        let urlString = "https://api.twitter.com/1.1/search/tweets.json/q=ecole42"
+        guard let url = URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=\(keyword)&count=100") else { return }
         let session = URLSession.shared
-        let url = URL(string: urlString)!
         var request = URLRequest(url: url)
 
         request.httpMethod = "GET"
-//        request.setValue(CONSUMER_KEY, forHTTPHeaderField: "Authorization")
-//        request.setValue(OAUTH_CONSUMER_KEY)
-        request.setValue("Bearer " + self.token, forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
         
-//        print(CONSUMER_SECRET)
         //https://www.xspdf.com/resolution/50536620.html
-//        print(CONSUMER_SECRET.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
         
         session.dataTask(with: request as URLRequest){
             (data, response, error) in
                 if let data = data {
-                    let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                    print(data)
-//                    do{
-//                        let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
-//                        print(json)
-//                    }catch{
-//                        print("Could not serialize")
-//                    }
+                    do {
+//                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                            if let names = json["names"] as? [String] {
+//                                   print(names)
+//                               }
+//                           }
+                        if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+                            print(json)
+                        }
+                    } catch {
+                        // handle error
+                    }
                 } else if let error = error {
-                    print(error)
+                   // handle error
                 }
-
             }.resume()
         
         
@@ -63,38 +59,30 @@ class APIController {
         delegate?.manageReceived(tweets)
     }
     
-    func getToken(/*byConsumerKey consumerKey: String, andConsumerSecret consumerSecret: String*/) {
-        print("getToken")
-        let encodedConsumerKey = CONSUMER_KEY.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let encodedConsumerSecret = CONSUMER_SECRET.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let bearerToken = "\(encodedConsumerKey):\(encodedConsumerSecret)".data(using: .utf8)?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-        
+    class func getToken(_ completion: @escaping ((String) -> Void)) {
         guard let url = URL(string: "https://api.twitter.com/oauth2/token") else { return }
+        let bearer = (("\(CONSUMER_KEY):\(CONSUMER_SECRET)").data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("Basic \(bearerToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("Basic \(bearer)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = "grant_type=client_credentials".data(using: String.Encoding.utf8)
-        
+    
         _ = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                //handle error
-            } else if let d = data {
+            if let err = error {
+                //show error
+            } else if let data = data {
                 do {
-                    if let dic = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? NSDictionary {
+                    if let dic = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
                         guard let token = dic["access_token"] as? String else {return}
-                        // save token self.token = token
-                        self.token = token
-                        print(token)
-                        self.search(with: "")
-                        
+                        completion(token)
                     }
                 } catch (let err) {
-                    //handel error
+                    //show error
                 }
             }
-        }
+        }.resume()
     }
-    
 }
 
 
