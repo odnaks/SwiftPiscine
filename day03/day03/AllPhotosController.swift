@@ -15,6 +15,7 @@ private struct Photo {
     }
 }
 
+
 class AllPhotosController: UIViewController {
     
     private let reuseIdentifier = "PhotoCollectionViewCell"
