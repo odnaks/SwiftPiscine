@@ -11,30 +11,29 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    //    private let OAUTH_CONSUMER_KEY = ""
-//    private let OAUTH_TOKEN = ""
     private let cellIdentifier = "TweetTableViewCell"
 
+    @IBOutlet weak var searchBar: UISearchBar!
     private var tweets = [Tweet]()
-    var token: String?
+    private var token: String?
+    private var api: APIController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
+        searchBar.placeholder = "enter a keyword..."
         
-        APIController.getToken{ token in
-            let api = APIController(withToken: token, andDelegate: self)
-            api.search(by: "trump")
+        APIController.getToken{ (token, error) in
+            if let token = token {
+                self.api = APIController(withToken: token, andDelegate: self)
+                self.api?.search(by: "Ecole 42")
+            } else if let error = error {
+                self.showAlert(withError: error)
+            }
         }
-//        api.search(with: "ecole 42")
-        
-        
-        //api.gettoken
-        //api.search(token)
     }
-    
-    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -44,16 +43,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TweetTableViewCell else { return UITableViewCell() }
-        cell.tweetNameLabel.text = tweets[indexPath.row].name
-        cell.tweetDateLabel.text = dateToString(date: tweets[indexPath.row].date)
-        cell.tweetTextLabel.text = tweets[indexPath.row].text
+        cell.tweet = tweets[indexPath.row]
         return cell
-    }
-    
-    private func dateToString(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "DD.MM.YYYY hh:mm"
-        return dateFormatter.string(from: date)
     }
 }
 
@@ -66,8 +57,23 @@ extension ViewController: APITwitterDelegate {
     }
     
     func showAlert(withError error: Error) {
-        //
+        DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in}))
+            self.present(alertVC, animated: false)
+        }
     }
+
     
+}
+
+extension ViewController: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//
+//    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let api = self.api else { return }
+        api.search(by: searchBar.text ?? "")
+    }
 }

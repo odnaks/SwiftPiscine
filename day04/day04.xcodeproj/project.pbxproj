@@ -17,6 +17,7 @@
 		8E64FED82571260F00639B6C /* APITwitterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64FED72571260F00639B6C /* APITwitterDelegate.swift */; };
 		8E64FEDA2571395700639B6C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64FED92571395700639B6C /* APIController.swift */; };
 		F0409FCD2571D41D00A4BACB /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0409FCC2571D41D00A4BACB /* TweetTableViewCell.swift */; };
+		F0409FD02571F9A800A4BACB /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0409FCF2571F9A800A4BACB /* MyError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8E64FED72571260F00639B6C /* APITwitterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITwitterDelegate.swift; sourceTree = "<group>"; };
 		8E64FED92571395700639B6C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		F0409FCC2571D41D00A4BACB /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		F0409FCF2571F9A800A4BACB /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				8E64FEBD25711BDD00639B6C /* AppDelegate.swift */,
 				8E64FEBF25711BDD00639B6C /* SceneDelegate.swift */,
 				8E64FED325711D5600639B6C /* ViewController.swift */,
+				F0409FCF2571F9A800A4BACB /* MyError.swift */,
 				F0409FCC2571D41D00A4BACB /* TweetTableViewCell.swift */,
 				8E64FED92571395700639B6C /* APIController.swift */,
 				8E64FED72571260F00639B6C /* APITwitterDelegate.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0409FD02571F9A800A4BACB /* MyError.swift in Sources */,
 				8E64FED425711D5600639B6C /* ViewController.swift in Sources */,
 				8E64FEBE25711BDD00639B6C /* AppDelegate.swift in Sources */,
 				8E64FEDA2571395700639B6C /* APIController.swift in Sources */,

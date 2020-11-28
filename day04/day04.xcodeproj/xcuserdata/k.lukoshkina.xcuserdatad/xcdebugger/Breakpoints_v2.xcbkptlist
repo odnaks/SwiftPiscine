@@ -7,47 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "621D6FE4-33FA-4C82-8CA4-DD7A053F6970"
-            shouldBeEnabled = "No"
+            uuid = "BFFFF3DB-CD1B-47EB-B195-254ACDCBDB5D"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "day04/APIController.swift"
+            filePath = "day04/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "search(by:)"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "showAlert(withError:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "621D6FE4-33FA-4C82-8CA4-DD7A053F6970 - 15dca70f6aa7e076"
+                  uuid = "BFFFF3DB-CD1B-47EB-B195-254ACDCBDB5D - 6217f3888530ff93"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in day04.APIController.search(with: Swift.String) -&gt; ()"
+                  symbolName = "day04.ViewController.showAlert(withError: Swift.Error) -&gt; ()"
                   moduleName = "day04"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/k.lukoshkina/SwiftPiscine/day04/day04/APIController.swift"
+                  urlString = "file:///Users/k.lukoshkina/SwiftPiscine/day04/day04/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "1514">
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "158">
                </Location>
                <Location
-                  uuid = "621D6FE4-33FA-4C82-8CA4-DD7A053F6970 - 15dca70f6aa7e076"
+                  uuid = "BFFFF3DB-CD1B-47EB-B195-254ACDCBDB5D - d608c76754141066"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in day04.APIController.search(with: Swift.String) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in day04.ViewController.showAlert(withError: Swift.Error) -&gt; ()"
                   moduleName = "day04"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/k.lukoshkina/SwiftPiscine/day04/day04/APIController.swift"
+                  urlString = "file:///Users/k.lukoshkina/SwiftPiscine/day04/day04/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "1569">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "53">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6640013F-869F-44A9-BA4C-717D8551028E"
-            shouldBeEnabled = "No"
+            uuid = "EC6FB364-58E5-41AF-BC09-92F905EAD1E6"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "day04/APIController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "search(by:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getToken(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

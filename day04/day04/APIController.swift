@@ -23,7 +23,7 @@ class APIController {
     
     func search(by keyword: String) {
         print("request starts")
-        guard let url = URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=\(keyword)&count=100") else { return }
+        guard let myKeyword = "\"\(keyword)\"".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed), let url = URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=\(myKeyword)&count=100") else { delegate?.showAlert(withError: MyError.requestError); return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
 
@@ -43,32 +43,30 @@ class APIController {
                                         if let text = tweet["text"] as? String,
                                            let date = tweet["created_at"] as? String,
                                            let user = tweet["user"] as? [String: Any], let name = user["name"] as? String {
+                                            print(date)
                                             tweets.append(Tweet(name: name, text: text, date: self.stringToDate(string: date)))
                                         }
                                     }
                                 }
                                 self.delegate?.manageReceived(tweets)
                             } else {
-                                // handle error
+                                self.delegate?.manageReceived([])
                             }
                         } else {
-                            //handle error
+                            self.delegate?.showAlert(withError: MyError.jsonError)
                         }
                     } catch {
-                        // handle error
+                        self.delegate?.showAlert(withError: MyError.jsonError)
                     }
                 } else if let error = error {
-                   // handle error
+                    self.delegate?.showAlert(withError: error)
                 }
             }.resume()
-        
-        
-//        var tweets: [Tweet] = [] //answer
         
         delegate?.manageReceived(tweets)
     }
     
-    class func getToken(_ completion: @escaping ((String) -> Void)) {
+    class func getToken(_ completion: @escaping ((String?, Error?) -> Void)) {
         guard let url = URL(string: "https://api.twitter.com/oauth2/token") else { return }
         let bearer = (("\(CONSUMER_KEY):\(CONSUMER_SECRET)").data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         var request = URLRequest(url: url)
@@ -78,16 +76,18 @@ class APIController {
         request.httpBody = "grant_type=client_credentials".data(using: String.Encoding.utf8)
     
         _ = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let err = error {
-                //show error
+            if let error = error {
+                completion(nil, error)
             } else if let data = data {
                 do {
                     if let dic = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
                         guard let token = dic["access_token"] as? String else {return}
-                        completion(token)
+                        completion(token, nil)
+                    } else {
+                        completion(nil, MyError.jsonError)
                     }
-                } catch (let err) {
-                    //show error
+                } catch (let error) {
+                    completion(nil, error)
                 }
             }
         }.resume()
