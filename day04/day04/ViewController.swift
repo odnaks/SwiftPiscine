@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let cellIdentifier = "TweetTableViewCell"
 
+    @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     private var tweets = [Tweet]()
     private var token: String?
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
         searchBar.placeholder = "enter a keyword..."
+        activeIndicator.startAnimating()
         
         APIController.getToken{ (token, error) in
             if let token = token {
@@ -52,12 +54,14 @@ extension ViewController: APITwitterDelegate {
     func manageReceived(_ tweets: [Tweet]) {
         self.tweets = tweets
         DispatchQueue.main.async {
+            self.activeIndicator.stopAnimating()
             self.tableView.reloadData()
         }
     }
     
     func showAlert(withError error: Error) {
         DispatchQueue.main.async {
+            self.activeIndicator.stopAnimating()
             let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in}))
             self.present(alertVC, animated: false)
@@ -72,8 +76,10 @@ extension ViewController: UISearchBarDelegate {
 //
 //    }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
         guard let api = self.api else { return }
+        activeIndicator.startAnimating()
         api.search(by: searchBar.text ?? "")
     }
 }

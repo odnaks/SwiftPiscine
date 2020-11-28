@@ -14,7 +14,7 @@ fileprivate let CONSUMER_SECRET = "GgDYlkSvaPxGxC4X8liwpUoqKwwr3lCADbz8A7ADU"
 class APIController {
     weak var delegate: APITwitterDelegate?
     
-    var token: String
+    let token: String
     
     init(withToken token: String, andDelegate delegate: APITwitterDelegate?) {
         self.delegate = delegate
@@ -43,7 +43,6 @@ class APIController {
                                         if let text = tweet["text"] as? String,
                                            let date = tweet["created_at"] as? String,
                                            let user = tweet["user"] as? [String: Any], let name = user["name"] as? String {
-                                            print(date)
                                             tweets.append(Tweet(name: name, text: text, date: self.stringToDate(string: date)))
                                         }
                                     }
@@ -81,8 +80,11 @@ class APIController {
             } else if let data = data {
                 do {
                     if let dic = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
-                        guard let token = dic["access_token"] as? String else {return}
-                        completion(token, nil)
+                        if let token = dic["access_token"] as? String {
+                            completion(token, nil)
+                        } else {
+                            completion(nil, MyError.tokenError)
+                        }
                     } else {
                         completion(nil, MyError.jsonError)
                     }

@@ -13,6 +13,7 @@ enum MyError: String, Error {
     case networkError
     case jsonError
     case uiError
+    case tokenError
 }
 
 extension MyError: LocalizedError {
@@ -26,6 +27,8 @@ extension MyError: LocalizedError {
             return "json error"
         case .uiError:
             return "ui error"
+        case .tokenError:
+            return "token error"
         }
     }
 }

@@ -12,12 +12,7 @@ class TweetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tweetNameLabel: UILabel!
     @IBOutlet weak var tweetDateLabel: UILabel!
-    @IBOutlet weak var tweetTextLabel: UILabel! {
-        didSet {
-            tweetTextLabel.numberOfLines = 0
-            tweetTextLabel.lineBreakMode = .byWordWrapping
-        }
-    }
+    @IBOutlet weak var tweetTextLabel: UILabel!
     
     var tweet: Tweet? {
         didSet {
@@ -29,6 +24,9 @@ class TweetTableViewCell: UITableViewCell {
         tweetNameLabel.text = tweet?.name
         tweetDateLabel.text = dateToString(date: tweet?.date ?? Date())
         tweetTextLabel.text = tweet?.text
+        tweetTextLabel.numberOfLines = 0
+        tweetTextLabel.lineBreakMode = .byWordWrapping
+        tweetTextLabel.sizeToFit()
     }
     
     private func dateToString(date: Date) -> String {
