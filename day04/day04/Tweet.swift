@@ -11,9 +11,16 @@ import Foundation
 struct Tweet: CustomStringConvertible {
     let name: String
     let text: String
+    let date: Date
     
     var description: String {
         return "\(name): \(text)"
+    }
+    
+    init(name: String, text: String, date: Date){
+        self.name = name
+        self.text = text
+        self.date = date
     }
 }
 

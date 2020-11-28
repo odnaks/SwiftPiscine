@@ -22,8 +22,7 @@ class APIController {
     }
     
     func search(by keyword: String) {
-        //request
-        print("search")
+        print("request starts")
         guard let url = URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=\(keyword)&count=100") else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
@@ -32,18 +31,28 @@ class APIController {
         request.setValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
         
         //https://www.xspdf.com/resolution/50536620.html
-        
+        var tweets = [Tweet]()
         session.dataTask(with: request as URLRequest){
             (data, response, error) in
                 if let data = data {
                     do {
-//                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                            if let names = json["names"] as? [String] {
-//                                   print(names)
-//                               }
-//                           }
-                        if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                            print(json)
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            if let tweetArray = json["statuses"] as? [Any] {
+                                for tweet in tweetArray {
+                                    if let tweet = tweet as? [String: Any] {
+                                        if let text = tweet["text"] as? String,
+                                           let date = tweet["created_at"] as? String,
+                                           let user = tweet["user"] as? [String: Any], let name = user["name"] as? String {
+                                            tweets.append(Tweet(name: name, text: text, date: self.stringToDate(string: date)))
+                                        }
+                                    }
+                                }
+                                self.delegate?.manageReceived(tweets)
+                            } else {
+                                // handle error
+                            }
+                        } else {
+                            //handle error
                         }
                     } catch {
                         // handle error
@@ -54,7 +63,7 @@ class APIController {
             }.resume()
         
         
-        var tweets: [Tweet] = [] //answer
+//        var tweets: [Tweet] = [] //answer
         
         delegate?.manageReceived(tweets)
     }
@@ -82,6 +91,12 @@ class APIController {
                 }
             }
         }.resume()
+    }
+    
+    private func stringToDate(string: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E MMM dd HH:mm:ss Z yyy"
+        return dateFormatter.date(from: string) ?? Date()
     }
 }
 
