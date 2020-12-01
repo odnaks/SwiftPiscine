@@ -17,6 +17,7 @@
 		F042E479257527D7004FBDCD /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E478257527D7004FBDCD /* PlaceCell.swift */; };
 		F042E47C25754C8B004FBDCD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E47B25754C8B004FBDCD /* ListViewController.swift */; };
 		F042E47F25754CCA004FBDCD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F042E47E25754CCA004FBDCD /* data.json */; };
+		F042E48425764FA9004FBDCD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E48325764FA9004FBDCD /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F042E478257527D7004FBDCD /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		F042E47B25754C8B004FBDCD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F042E47E25754CCA004FBDCD /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		F042E48325764FA9004FBDCD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				F042E47E25754CCA004FBDCD /* data.json */,
 				F042E478257527D7004FBDCD /* PlaceCell.swift */,
 				8E9FAAB425758A62009D3E68 /* Place.swift */,
+				F042E48325764FA9004FBDCD /* MapViewController.swift */,
 				F042E47B25754C8B004FBDCD /* ListViewController.swift */,
 				F042E46925750003004FBDCD /* Main.storyboard */,
 				F042E46C25750006004FBDCD /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				8E9FAAB525758A62009D3E68 /* Place.swift in Sources */,
 				F042E47C25754C8B004FBDCD /* ListViewController.swift in Sources */,
 				F042E479257527D7004FBDCD /* PlaceCell.swift in Sources */,
+				F042E48425764FA9004FBDCD /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

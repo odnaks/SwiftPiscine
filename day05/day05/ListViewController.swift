@@ -21,19 +21,16 @@ class ListViewController: UIViewController {
                 if let dic = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [Any] {
                     for place in dic {
                         if let placeDic = place as? [String: Any] {
-                            print(placeDic)
-                            let placeModel = Place(name: "", desc: "")
-                            print("====")
+                            if let name = placeDic["name"] as? String, let desc = placeDic["desc"] as? String {
+                                let placeModel = Place(name: name, desc: desc)
+                                places.append(placeModel)
+                                print(placeDic)
+                                print("====")
+                            }
                         }
                     }
-//                    for place in dic {
-//                        if let name = place["name"] as? String,
-//                            let desc = place["desc"] as? String {
-//                            
-//                        }
-//                    }
+                    tableView.reloadData()
                 }
-//                allWords = startWords.components(separatedBy: "\n")
             }
         }
     }
@@ -46,8 +43,14 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceCell") as? PlaceCell else { return UITableViewCell() }
+        cell.nameLabel.text = places[indexPath.row].name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tabBarController?.selectedIndex = 0
+        se
     }
     
     
