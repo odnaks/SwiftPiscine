@@ -18,6 +18,8 @@
 		F042E47C25754C8B004FBDCD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E47B25754C8B004FBDCD /* ListViewController.swift */; };
 		F042E47F25754CCA004FBDCD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F042E47E25754CCA004FBDCD /* data.json */; };
 		F042E48425764FA9004FBDCD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E48325764FA9004FBDCD /* MapViewController.swift */; };
+		F042E48725768FD8004FBDCD /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E48625768FD8004FBDCD /* Singleton.swift */; };
+		F042E48A2576988C004FBDCD /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042E4892576988C004FBDCD /* CustomPointAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		F042E47B25754C8B004FBDCD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F042E47E25754CCA004FBDCD /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F042E48325764FA9004FBDCD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F042E48625768FD8004FBDCD /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		F042E4892576988C004FBDCD /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +76,9 @@
 				F042E47E25754CCA004FBDCD /* data.json */,
 				F042E478257527D7004FBDCD /* PlaceCell.swift */,
 				8E9FAAB425758A62009D3E68 /* Place.swift */,
+				F042E4892576988C004FBDCD /* CustomPointAnnotation.swift */,
 				F042E48325764FA9004FBDCD /* MapViewController.swift */,
+				F042E48625768FD8004FBDCD /* Singleton.swift */,
 				F042E47B25754C8B004FBDCD /* ListViewController.swift */,
 				F042E46925750003004FBDCD /* Main.storyboard */,
 				F042E46C25750006004FBDCD /* Assets.xcassets */,
@@ -155,9 +161,11 @@
 			files = (
 				F042E46825750003004FBDCD /* ViewController.swift in Sources */,
 				F042E46425750003004FBDCD /* AppDelegate.swift in Sources */,
+				F042E48A2576988C004FBDCD /* CustomPointAnnotation.swift in Sources */,
 				F042E46625750003004FBDCD /* SceneDelegate.swift in Sources */,
 				8E9FAAB525758A62009D3E68 /* Place.swift in Sources */,
 				F042E47C25754C8B004FBDCD /* ListViewController.swift in Sources */,
+				F042E48725768FD8004FBDCD /* Singleton.swift in Sources */,
 				F042E479257527D7004FBDCD /* PlaceCell.swift in Sources */,
 				F042E48425764FA9004FBDCD /* MapViewController.swift in Sources */,
 			);

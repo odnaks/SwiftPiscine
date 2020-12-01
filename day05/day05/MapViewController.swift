@@ -9,20 +9,22 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+protocol MapViewControllerDelegate {
+    func centerMap(with place: Place)
+}
+
+class MapViewController: UIViewController, MapViewControllerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     private var locationManager: CLLocationManager!
-    var place: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        mapView.delegate = self
+        mapView.delegate = self
         mapView.mapType = MKMapType.standard
-        
-        let location = CLLocation(latitude: 48.89741, longitude: 2.3181474)
-        self.centerMapOnLocation(location: location)
+
+        showAllPins()
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -30,17 +32,25 @@ class MapViewController: UIViewController {
 
     }
     
-   func centerMapOnLocation(location: CLLocation) {
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+   func centerMap(with place: Place) {
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         DispatchQueue.main.async {
             self.mapView.setRegion(region, animated: true)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location.coordinate
-            annotation.title = "Ecole 42"
-            annotation.subtitle = "Paris, France"
-            self.mapView.addAnnotation(annotation)
         }
    }
+    
+    private func showAllPins() {
+        for place in Singleton.shared.places {
+            let coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+            let annotation = CustomPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = place.name
+            annotation.subtitle = place.desc
+            annotation.color = place.color
+            annotation.identifier = place.colorString
+            self.mapView.addAnnotation(annotation)
+        }
+    }
     
     @IBAction func changeSelect(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -62,6 +72,22 @@ class MapViewController: UIViewController {
     
 }
 
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView = MKMarkerAnnotationView()
+        guard let annotation = annotation as? CustomPointAnnotation else {return nil}
+        let identifier = annotation.identifier ?? "default"
+        if let view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            annotationView = view
+        } else {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        annotationView.markerTintColor = annotation.color
+        annotationView.clusteringIdentifier = identifier
+        return annotationView
+    }
+}
+
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -76,3 +102,4 @@ extension MapViewController: CLLocationManagerDelegate {
 
     }
 }
+

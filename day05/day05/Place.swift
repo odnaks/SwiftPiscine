@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct Place {
     let name: String
     let desc: String
+    let latitude: Double
+    let longitude: Double
+    let color: UIColor
+    let colorString: String
 }

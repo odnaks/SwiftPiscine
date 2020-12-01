@@ -1,10 +1,37 @@
 [
     {
-        "name": "name1",
-        "desc": "лписание1"
+        "name": "42",
+        "desc": "Paris, France",
+        "latitude": 48.89741,
+        "longitude": 2.3181474,
+        "color": "red"
     },
     {
-        "name": "name2",
-        "desc": "лписание2"
+        "name": "21",
+        "desc": "Moscow, Russia",
+        "latitude": 55.797129,
+        "longitude": 37.579780,
+        "color": "blue"
+    },
+    {
+        "name": "21",
+        "desc": "Kazan, Russia",
+        "latitude": 55.781986,
+        "longitude": 49.124811,
+        "color": "green"
+    },
+    {
+        "name": "42",
+        "desc": "Silicon Value, USA",
+        "latitude": 37.5487,
+        "longitude": -122.058975,
+        "color": "black"
+    },
+    {
+        "name": "42",
+        "desc": "Quebec, Canada",
+        "latitude": 46.814944,
+        "longitude": -71.220688,
+        "color": "orange"
     }
 ]
