@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreMotion
 
 class ViewController: UIViewController {
 
+    var motionManager = CMMotionManager()
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
     var collision: UICollisionBehavior!
@@ -30,7 +32,16 @@ class ViewController: UIViewController {
         
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(handleTapGesture(_:)))
+        tapRecognizer.delegate = self
         view.addGestureRecognizer(tapRecognizer)
+        
+        motionManager.startAccelerometerUpdates(to: OperationQueue.main, withHandler: handleAccelerometer(data:error:))
+    }
+    
+    func handleAccelerometer(data: CMAccelerometerData?, error: Error?) -> Void {
+        print("accelerometeer")
+        guard let theData = data else { return }
+        gravity.gravityDirection = CGVector(dx: theData.acceleration.x, dy: -theData.acceleration.y)
     }
     
     @objc func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -126,8 +137,17 @@ class ViewController: UIViewController {
         
         let theRotateRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotateGesture(_:)))
         square.addGestureRecognizer(theRotateRecognizer)
+        
+        thePanRecognizer.delegate = self
+        thePinchRecognizer.delegate = self
+        theRotateRecognizer.delegate = self
     }
 
 
 }
 
+extension ViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}

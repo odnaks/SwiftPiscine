@@ -14,8 +14,11 @@ enum Shape {
     static var allShapes: [Shape] = [circle, square]
 }
 
-var allColors: [UIColor] = [.red, .black, .green, .blue]
-
+var allColors: [UIColor] = [UIColor(red: 0.24, green: 0.33, blue: 0.21, alpha: 1.00),
+                            UIColor(red: 0.58, green: 0.56, blue: 0.28, alpha: 1.00),
+                            UIColor(red: 0.96, green: 0.85, blue: 0.45, alpha: 1.00),
+                            UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.00),
+                            UIColor(red: 0.90, green: 0.36, blue: 0.49, alpha: 1.00)]
 
 class ShapeView: UIView {
 
