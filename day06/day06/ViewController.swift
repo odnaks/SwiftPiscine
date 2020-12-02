@@ -41,7 +41,6 @@ class ViewController: UIViewController {
     
     @objc func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("GR - pan")
-//        gestureRecognizer.view?.frame = CGRect(x: gestureRecognizer.location(in: self.view).x, y: gestureRecognizer.location(in: self.view).y, width: gestureRecognizer.view?.frame.size.width ?? 0, height: gestureRecognizer.view?.frame.size.height ?? 0)
         guard let shapeView = gestureRecognizer.view as? ShapeView else { return }
         switch gestureRecognizer.state {
             case .began:
@@ -49,7 +48,6 @@ class ViewController: UIViewController {
             case .changed:
                 collision.removeItem(shapeView)
                 dynamicItem.removeItem(shapeView)
-//                shapeView.center = gestureRecognizer.location(in: self.view)
                 shapeView.center.x += gestureRecognizer.translation(in: self.view).x
                 shapeView.center.y += gestureRecognizer.translation(in: self.view).y
                 collision.addItem(shapeView)
@@ -62,11 +60,54 @@ class ViewController: UIViewController {
                 break
         }
     }
-//    @objc func handlePanGesture(_ gestureRecognizer: UITapGestureRecognizer) {
-//        print("GR - pan")
-//        let location = gestureRecognizer.location(in: self.view)
-//        addShape(location: location)
-//    }
+    
+    @objc func handlePinchGesture(_ gestureRecognizer: UIPinchGestureRecognizer) {
+        print("GR - pinch")
+        guard let shapeView = gestureRecognizer.view as? ShapeView else { return }
+        switch gestureRecognizer.state {
+            case .began:
+                gravity.removeItem(shapeView)
+            case .changed:
+                collision.removeItem(shapeView)
+                dynamicItem.removeItem(shapeView)
+                if let savedSize = shapeView.savedSize {
+                    shapeView.bounds.size.width = savedSize.width * gestureRecognizer.scale
+                    shapeView.bounds.size.height = savedSize.height * gestureRecognizer.scale
+                }
+                if let shape = shapeView.shape, shape == .circle {
+                    shapeView.setCorner()
+                }
+                collision.addItem(shapeView)
+                dynamicItem.addItem(shapeView)
+                animator.updateItem(usingCurrentState: shapeView)
+            case .ended, .cancelled, .failed:
+                gravity.addItem(shapeView)
+                shapeView.savedSize = shapeView.bounds.size
+            default:
+                break
+        }
+    }
+    
+    @objc func handleRotateGesture(_ gestureRecognizer: UIRotationGestureRecognizer) {
+        print("GR - rotate")
+        guard let shapeView = gestureRecognizer.view as? ShapeView else { return }
+        switch gestureRecognizer.state {
+            case .began:
+                gravity.removeItem(shapeView)
+            case .changed:
+                collision.removeItem(shapeView)
+                dynamicItem.removeItem(shapeView)
+                shapeView.transform = shapeView.transform.rotated(by: gestureRecognizer.rotation)
+                gestureRecognizer.rotation = 0.0
+                collision.addItem(shapeView)
+                dynamicItem.addItem(shapeView)
+                animator.updateItem(usingCurrentState: shapeView)
+            case .ended, .cancelled, .failed:
+                gravity.addItem(shapeView)
+            default:
+                break
+        }
+    }
     
     private func addShape(location: CGPoint) {
 
@@ -79,6 +120,12 @@ class ViewController: UIViewController {
         
         let thePanRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         square.addGestureRecognizer(thePanRecognizer)
+        
+        let thePinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
+        square.addGestureRecognizer(thePinchRecognizer)
+        
+        let theRotateRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotateGesture(_:)))
+        square.addGestureRecognizer(theRotateRecognizer)
     }
 
 
