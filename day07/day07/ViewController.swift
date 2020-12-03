@@ -22,13 +22,8 @@ class ViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.view.center.y = self.view.center.y - 30
-
-//            CGRect
+    
         setupBubbles()
-        
-//        self.addMessage("0", text: "hello")
         
         self.senderId = UIDevice.current.identifierForVendor?.uuidString
         self.senderDisplayName = UIDevice.current.identifierForVendor?.uuidString
@@ -39,25 +34,6 @@ class ViewController: JSQMessagesViewController {
                 self.addMessage("", text: "Hello!\nPlease, enter your city or country.\n\nexample: Moscow")
             }
         }
-    
-        
-//        forecastClient.current(latitude: 55.753215, longitude: 37.622504) { result in
-//          switch result {
-//          case .success(let data):
-//            guard let temp = data.currently?.temperature else { return }
-//            print(temp.celsius())
-////            print(data.currently?.temperature?.celsius())
-////            print(data)
-//              // Manage weather data using the Forecast model. Ex:
-////              if let current = forecast.currently {
-////                let t = current.temperature
-////              }
-//            case .failure(let error):
-//                print("error")
-//                print(error)
-//              // Manage error case
-//          }
-//        }
         
     }
     
@@ -79,19 +55,12 @@ class ViewController: JSQMessagesViewController {
                 case .success(let data):
                     guard let temp = data.currently?.temperature else { return }
                     print("weather data:\n")
-                    print(data)
-                    self.addMessage("", text: " \(temp.celsius()) celsus")
+                    self.addMessage("", text:
+                        "\(data.timezone)\n\(temp.celsius() > 0 ? "+" : "")\(temp.celsius()) °C")
                     print(temp.celsius())
-//            print(data.currently?.temperature?.celsius())
-//            print(data)
-              // Manage weather data using the Forecast model. Ex:
-//              if let current = forecast.currently {
-//                let t = current.temperature
-//              }
-                case .failure(let error):
+                case .failure:
                     print("error 4")
                     self.sendError(with: .darkSkyServerError)
-              // Manage error case
             }
         }
     }
