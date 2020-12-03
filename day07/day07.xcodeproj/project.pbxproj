@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,12 @@
 		8E6D92C02577FBCE00183B07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6D92BE2577FBCE00183B07 /* Main.storyboard */; };
 		8E6D92C22577FBD700183B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6D92C12577FBD700183B07 /* Assets.xcassets */; };
 		8E6D92C52577FBD700183B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6D92C32577FBD700183B07 /* LaunchScreen.storyboard */; };
+		9A78D9ECEA95043A20E3C7FE /* Pods_day07.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5A2DF0ACF00D963ABA9B7A /* Pods_day07.framework */; };
+		F0E1A52025795E6A0076D77D /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A51F25795E6A0076D77D /* MyError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7259F97B75E0072B1EF2D3F6 /* Pods-day07.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day07.debug.xcconfig"; path = "Target Support Files/Pods-day07/Pods-day07.debug.xcconfig"; sourceTree = "<group>"; };
 		8E6D92B52577FBCE00183B07 /* day07.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = day07.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E6D92B82577FBCE00183B07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E6D92BA2577FBCE00183B07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		8E6D92C12577FBD700183B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E6D92C42577FBD700183B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E6D92C62577FBD700183B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA671A85793D6FF026BDF73 /* Pods-day07.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day07.release.xcconfig"; path = "Target Support Files/Pods-day07/Pods-day07.release.xcconfig"; sourceTree = "<group>"; };
+		F0E1A51F25795E6A0076D77D /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		FC5A2DF0ACF00D963ABA9B7A /* Pods_day07.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_day07.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A78D9ECEA95043A20E3C7FE /* Pods_day07.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				8E6D92B72577FBCE00183B07 /* day07 */,
 				8E6D92B62577FBCE00183B07 /* Products */,
+				96D94888C6C32B032DD1B965 /* Pods */,
+				B3EFC20F2822C2A35FB910A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +68,30 @@
 				8E6D92B82577FBCE00183B07 /* AppDelegate.swift */,
 				8E6D92BA2577FBCE00183B07 /* SceneDelegate.swift */,
 				8E6D92BC2577FBCE00183B07 /* ViewController.swift */,
+				F0E1A51F25795E6A0076D77D /* MyError.swift */,
 				8E6D92BE2577FBCE00183B07 /* Main.storyboard */,
 				8E6D92C12577FBD700183B07 /* Assets.xcassets */,
 				8E6D92C32577FBD700183B07 /* LaunchScreen.storyboard */,
 				8E6D92C62577FBD700183B07 /* Info.plist */,
 			);
 			path = day07;
+			sourceTree = "<group>";
+		};
+		96D94888C6C32B032DD1B965 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7259F97B75E0072B1EF2D3F6 /* Pods-day07.debug.xcconfig */,
+				CEA671A85793D6FF026BDF73 /* Pods-day07.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B3EFC20F2822C2A35FB910A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC5A2DF0ACF00D963ABA9B7A /* Pods_day07.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E6D92C92577FBD700183B07 /* Build configuration list for PBXNativeTarget "day07" */;
 			buildPhases = (
+				E4AE479784712C8B3336563B /* [CP] Check Pods Manifest.lock */,
 				8E6D92B12577FBCE00183B07 /* Sources */,
 				8E6D92B22577FBCE00183B07 /* Frameworks */,
 				8E6D92B32577FBCE00183B07 /* Resources */,
+				4689B83FA218F90775701C0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,11 +162,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4689B83FA218F90775701C0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-day07/Pods-day07-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-day07/Pods-day07-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-day07/Pods-day07-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4AE479784712C8B3336563B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-day07-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8E6D92B12577FBCE00183B07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0E1A52025795E6A0076D77D /* MyError.swift in Sources */,
 				8E6D92BD2577FBCE00183B07 /* ViewController.swift in Sources */,
 				8E6D92B92577FBCE00183B07 /* AppDelegate.swift in Sources */,
 				8E6D92BB2577FBCE00183B07 /* SceneDelegate.swift in Sources */,
@@ -282,9 +354,11 @@
 		};
 		8E6D92CA2577FBD700183B07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7259F97B75E0072B1EF2D3F6 /* Pods-day07.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MN5SDDPV9R;
 				INFOPLIST_FILE = day07/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,9 +373,11 @@
 		};
 		8E6D92CB2577FBD700183B07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEA671A85793D6FF026BDF73 /* Pods-day07.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MN5SDDPV9R;
 				INFOPLIST_FILE = day07/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
