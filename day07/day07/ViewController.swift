@@ -146,6 +146,8 @@ extension Double {
     }
 }
 
+//https://github.com/alex-x-x-x-x/Messenger/blob/master/Messenger/MessagesViewController.swift
+
 //https://cocoapods.org/pods/RecastAI
 //https://cai.tools.sap/xvluk/day07/settings/tokens
 
