@@ -13,6 +13,10 @@
 		8E977E132578287700A61254 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E977E112578287700A61254 /* Main.storyboard */; };
 		8E977E152578287700A61254 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E977E142578287700A61254 /* Assets.xcassets */; };
 		8E977E182578287700A61254 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E977E162578287700A61254 /* LaunchScreen.storyboard */; };
+		F0E1A541257A4D110076D77D /* drestles2020.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A53F257A4D110076D77D /* drestles2020.xcdatamodeld */; };
+		F0E1A552257A66DB0076D77D /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A550257A66DB0076D77D /* Article+CoreDataClass.swift */; };
+		F0E1A553257A66DB0076D77D /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A551257A66DB0076D77D /* Article+CoreDataProperties.swift */; };
+		F0E1A559257A6B750076D77D /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A558257A6B750076D77D /* ArticleManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		8E977E142578287700A61254 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E977E172578287700A61254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E977E192578287700A61254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0E1A540257A4D110076D77D /* drestles2020.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = drestles2020.xcdatamodel; sourceTree = "<group>"; };
+		F0E1A550257A66DB0076D77D /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F0E1A551257A66DB0076D77D /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F0E1A558257A6B750076D77D /* ArticleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,8 @@
 		8E977DFC2578285B00A61254 /* drestles2020 */ = {
 			isa = PBXGroup;
 			children = (
+				F0E1A53E257A4CA90076D77D /* Sources */,
+				F0E1A53D257A4C930076D77D /* Resources */,
 				8E977DFE2578285B00A61254 /* Info.plist */,
 			);
 			path = drestles2020;
@@ -84,6 +94,24 @@
 				8E977E192578287700A61254 /* Info.plist */,
 			);
 			path = drestles2020Examples;
+			sourceTree = "<group>";
+		};
+		F0E1A53D257A4C930076D77D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0E1A53F257A4D110076D77D /* drestles2020.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F0E1A53E257A4CA90076D77D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F0E1A550257A66DB0076D77D /* Article+CoreDataClass.swift */,
+				F0E1A551257A66DB0076D77D /* Article+CoreDataProperties.swift */,
+				F0E1A558257A6B750076D77D /* ArticleManager.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +174,7 @@
 				TargetAttributes = {
 					8E977DF92578285B00A61254 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1220;
 					};
 					8E977E082578287700A61254 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -196,6 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0E1A552257A66DB0076D77D /* Article+CoreDataClass.swift in Sources */,
+				F0E1A541257A4D110076D77D /* drestles2020.xcdatamodeld in Sources */,
+				F0E1A559257A6B750076D77D /* ArticleManager.swift in Sources */,
+				F0E1A553257A66DB0076D77D /* Article+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +387,7 @@
 		8E977E032578285B00A61254 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -369,6 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = school21.drestles2020;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,6 +412,7 @@
 		8E977E042578285B00A61254 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -466,6 +502,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F0E1A53F257A4D110076D77D /* drestles2020.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F0E1A540257A4D110076D77D /* drestles2020.xcdatamodel */,
+			);
+			currentVersion = F0E1A540257A4D110076D77D /* drestles2020.xcdatamodel */;
+			path = drestles2020.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E977DF12578285B00A61254 /* Project object */;
 }

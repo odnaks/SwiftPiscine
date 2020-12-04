@@ -15,6 +15,11 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "13.2"
   spec.swift_version = "5"
 
-  spec.source_files  = "drestles2020/**/*.xcdatamodeld"
+  spec.resources    = 'drestles2020/Resources/**/*.xcdatamodeld'
+  spec.source_files = 'drestles2020/Sources/**/*.swift'
+
+  spec.frameworks = 'Coredata'
+
+  spec.source= { :git => 'https://github.com/odnaks/drestles2020.git', :tag => '0.0.1' }
 
 end
