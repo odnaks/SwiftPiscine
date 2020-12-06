@@ -40,21 +40,51 @@
                                     <constraint firstItem="d3o-Gr-9Qw" firstAttribute="top" secondItem="fs7-Ad-Pg2" secondAttribute="top" constant="8" id="hAz-Wo-cN1"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nL-Hh-9PG">
+                                <rect key="frame" x="160" y="780" width="94" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="49H-Ba-XJQ"/>
+                                    <constraint firstAttribute="width" constant="94" id="BRC-pC-jNZ"/>
+                                </constraints>
+                                <state key="normal" title="Route">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJp-z1-WGK">
+                                <rect key="frame" x="342" y="780" width="42" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DJp-z1-WGK" secondAttribute="height" multiplier="1:1" id="K5c-KI-RZ6"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="clickMyLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJR-uB-Qsf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5nL-Hh-9PG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Pg-d3-F8G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fs7-Ad-Pg2" secondAttribute="trailing" id="3vp-PY-Ghr"/>
                             <constraint firstItem="6uk-ye-5L6" firstAttribute="top" secondItem="fs7-Ad-Pg2" secondAttribute="bottom" id="Lah-8A-6vy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5nL-Hh-9PG" secondAttribute="bottom" constant="40" id="SeX-cK-XlK"/>
                             <constraint firstItem="6uk-ye-5L6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="USS-E6-NE2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="fs7-Ad-Pg2" secondAttribute="top" id="Y7O-qv-G7B"/>
+                            <constraint firstItem="DJp-z1-WGK" firstAttribute="centerY" secondItem="5nL-Hh-9PG" secondAttribute="centerY" id="Yiw-Rd-itO"/>
                             <constraint firstAttribute="bottom" secondItem="6uk-ye-5L6" secondAttribute="bottom" id="alP-su-ZUk"/>
                             <constraint firstItem="fs7-Ad-Pg2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cOn-Ir-Eto"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6uk-ye-5L6" secondAttribute="trailing" id="jwo-Gv-SCa"/>
+                            <constraint firstItem="DJp-z1-WGK" firstAttribute="height" secondItem="5nL-Hh-9PG" secondAttribute="height" id="qY7-WS-wkJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DJp-z1-WGK" secondAttribute="trailing" constant="30" id="wHX-px-zmV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="6uk-ye-5L6" id="2zp-cO-Qup"/>
+                        <outlet property="myLocationButton" destination="DJp-z1-WGK" id="fvB-iH-vZW"/>
+                        <outlet property="routeButton" destination="5nL-Hh-9PG" id="6Ng-D0-YHH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -70,16 +100,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m0l-pF-uT8">
-                                <rect key="frame" x="20" y="52" width="332" height="34"/>
+                                <rect key="frame" x="20" y="52" width="328" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbV-QK-Jpv">
-                                <rect key="frame" x="360" y="54" width="46" height="30"/>
+                                <rect key="frame" x="356" y="54" width="50" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="gvg-5y-ZFe"/>
+                                    <constraint firstAttribute="width" constant="50" id="gvg-5y-ZFe"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="clickButton:" destination="1Co-WU-RHr" eventType="touchUpInside" id="zAO-RJ-49d"/>
                                 </connections>
@@ -139,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
