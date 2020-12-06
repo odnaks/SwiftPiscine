@@ -32,7 +32,6 @@ class SearchViewController: UIViewController {
         places = []
         
         let url = "https://api.openrouteservice.org/geocode/autocomplete?api_key=5b3ce3597851110001cf6248813a66961c2d47e3bfc3b9bee296ac4f&text='\(text)'"
-//
         AF.request(url).responseJSON { (reseponse) in
 
                     guard let data = reseponse.data else {
@@ -40,12 +39,9 @@ class SearchViewController: UIViewController {
                     }
 
                     do {
-//                        print(data)
                         print("json")
                         let jsonData = try JSON(data: data)
-//                        print(jsonData)
                         let routes = jsonData["features"].arrayValue
-//                        print(routes)
                         for route in routes {
                             let dic = route["properties"].dictionary
                             let geom = route["geometry"].dictionary
@@ -55,19 +51,6 @@ class SearchViewController: UIViewController {
                             let lat = coord[1].doubleValue
                             self.places.append(Place(title: label, lat: lat, lnt: lnt))
                         }
-////
-//                        print(routes)
-//
-//                        for route in routes {
-//                            print(route)
-//                            let overview_polyline = route["overview_polyline"].dictionary
-//                            let points = overview_polyline?["points"]?.string
-//                            let path = GMSPath.init(fromEncodedPath: points ?? "")
-//                            let polyline = GMSPolyline.init(path: path)
-//                            polyline.strokeColor = .systemBlue
-//                            polyline.strokeWidth = 5
-//                            polyline.map = self.mapView
-//                        }
                         self.tableView.reloadData()
                     }
                      catch let error {
