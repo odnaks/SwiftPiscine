@@ -27,7 +27,6 @@ class SearchViewController: UIViewController {
         
     }
     
-    
     private func search(text: String) {
         places = []
         

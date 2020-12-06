@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         miniRouteButton.layer.cornerRadius = miniRouteButton.frame.height / 2
         miniRouteButton.layer.masksToBounds = true
         
+        miniRouteButton.isHidden = true
         routeButton.isHidden = true
         myLocationButton.layer.cornerRadius = myLocationButton.frame.height / 2
         
@@ -61,18 +62,7 @@ class ViewController: UIViewController {
     
     private func searchPlace() {
         guard let place = searchedPlace else { return }
-        oneTextField.isHidden = true
-        routeButton.isHidden = true
-        fromTextField.isHidden = false
-        destinationTextField.isHidden = false
-        miniRouteButton.isHidden = false
-        
-        fromTextField.text = "my location"
-        destinationTextField.text = destinationPlace?.title
-    
         routeButton.isHidden = false
-//        print(place.lat)
-//        print(place.lnt)
         
         if destinationMarker != nil { destinationMarker?.map = nil }
         destinationMarker = GMSMarker()
@@ -131,6 +121,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickRoute(_ sender: Any) {
+        if fromPlace == nil {
+            oneTextField.isHidden = true
+            routeButton.isHidden = true
+            fromTextField.isHidden = false
+            destinationTextField.isHidden = false
+            miniRouteButton.isHidden = false
+            
+            fromTextField.text = "my location"
+            destinationTextField.text = destinationPlace?.title
+        
+        }
+        
         guard let destination = destinationPlace else { return }
         if let fromPlace = self.fromPlace {
             self.getDirection(startLnt: destination.lnt, startLat: destination.lat,
@@ -139,7 +141,6 @@ class ViewController: UIViewController {
             self.getDirection(startLnt: destination.lnt, startLat: destination.lat,
                          endLnt: fromPlace.coordinate.longitude, endLat: fromPlace.coordinate.latitude)
         }
-        routeButton.isHidden = true
     }
     
     private func drawPath() {
@@ -206,10 +207,6 @@ extension ViewController: CLLocationManagerDelegate {
             
         let location = locations[0]
         currentLocation = location
-//            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-//            let location2d = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-//            let region = MKCoordinateRegion(center: location2d, span: span)
-//            mapView.setRegion(region, animated: true)
         let camera = GMSCameraPosition(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
         self.mapView.animate(to: camera)
         self.mapView.isMyLocationEnabled = true
