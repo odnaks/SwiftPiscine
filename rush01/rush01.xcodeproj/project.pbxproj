@@ -16,6 +16,7 @@
 		F0E1A5B4257C7D0C0076D77D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E1A5B2257C7D0C0076D77D /* LaunchScreen.storyboard */; };
 		F0E1A5D1257D1D640076D77D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A5D0257D1D640076D77D /* SearchViewController.swift */; };
 		F0E1A5D4257D21060076D77D /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A5D3257D21060076D77D /* SearchCell.swift */; };
+		F0E1A5DF257D27540076D77D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1A5DE257D27540076D77D /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F0E1A5B5257C7D0C0076D77D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E1A5D0257D1D640076D77D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F0E1A5D3257D21060076D77D /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		F0E1A5DE257D27540076D77D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				F0E1A5A9257C7D0A0076D77D /* SceneDelegate.swift */,
 				F0E1A5D0257D1D640076D77D /* SearchViewController.swift */,
 				F0E1A5D3257D21060076D77D /* SearchCell.swift */,
+				F0E1A5DE257D27540076D77D /* Place.swift */,
 				F0E1A5AB257C7D0A0076D77D /* ViewController.swift */,
 				F0E1A5AD257C7D0A0076D77D /* Main.storyboard */,
 				F0E1A5B0257C7D0C0076D77D /* Assets.xcassets */,
@@ -232,6 +235,7 @@
 				F0E1A5AC257C7D0A0076D77D /* ViewController.swift in Sources */,
 				F0E1A5D4257D21060076D77D /* SearchCell.swift in Sources */,
 				F0E1A5A8257C7D0A0076D77D /* AppDelegate.swift in Sources */,
+				F0E1A5DF257D27540076D77D /* Place.swift in Sources */,
 				F0E1A5D1257D1D640076D77D /* SearchViewController.swift in Sources */,
 				F0E1A5AA257C7D0A0076D77D /* SceneDelegate.swift in Sources */,
 			);

@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var places = [String]()
+    var places = [Place]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,8 @@ class SearchViewController: UIViewController {
     
     
     private func search(text: String) {
+        places = []
+        
         let url = "https://api.openrouteservice.org/geocode/autocomplete?api_key=5b3ce3597851110001cf6248813a66961c2d47e3bfc3b9bee296ac4f&text=\(text)"
 //
         AF.request(url).responseJSON { (reseponse) in
@@ -44,11 +46,11 @@ class SearchViewController: UIViewController {
                         for route in routes {
                             let dic = route["properties"].dictionary
                             let geom = route["geometry"].dictionary
-                            let coord = geom?["coordinates"]?.arrayValue
-                            let label = dic?["label"]?.string
-                            print(dic!["label"])
-                            print(coord)
-                            self.places.append(label!)
+                            guard let coord = geom?["coordinates"]?.arrayValue,
+                                  let label = dic?["label"]?.string else { return }
+                            let lat = coord[0].doubleValue
+                            let lnt = coord[1].doubleValue
+                            self.places.append(Place(title: label, lat: lat, lnt: lnt))
                         }
 ////
 //                        print(routes)
@@ -89,7 +91,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
-        cell.titleLabel.text = places[indexPath.row]
+        cell.titleLabel.text = places[indexPath.row].title
         return cell
     }
     
